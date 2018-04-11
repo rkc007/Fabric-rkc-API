@@ -3,14 +3,6 @@ const puppeteer = require('puppeteer');
 var curl = require('curlrequest');
 var schedule = require('node-schedule');
 
-var rule = new schedule.RecurrenceRule();
-rule.minute = 60;
- 
-var j = schedule.scheduleJob(rule, function(){
-  console.log('The answer to life, the universe, and everything!');
-  run();
-});
-
 
 async function run() {
     const browser = await puppeteer.launch({
@@ -146,4 +138,11 @@ async function run() {
     });
     browser.close();
 }
-
+run();
+// var rule = new schedule.RecurrenceRule();
+// rule.minute = 60;
+ 
+// var j = schedule.scheduleJob(rule, function(){
+//   console.log('The answer to life, the universe, and everything!');
+//   run();
+// });
